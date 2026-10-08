@@ -1,0 +1,38 @@
+[package]
+name = "win-locksmith"
+version = "0.1.2"
+authors = ["Fu Wang <wangfu91@hotmail.com>"]
+description = "A Windows utility to find processes locking your files"
+repository = "https://github.com/wangfu91/locksmith"
+license = "MIT"
+keywords = ["windows", "utility", "file-locks", "process"]
+categories = ["command-line-utilities", "development-tools", "filesystem"]
+edition = "2024"
+readme = "README.md"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[[bin]]
+name = "locksmith"
+path = "src/main.rs"
+
+[dependencies]
+anyhow = "1.0.98"
+clap = { version = "4.5.38", features = ["derive"] }
+log = "0.4.27"
+colored = "3.0.0"
+
+[dependencies.windows]
+version = "0.61.1"
+features = [
+    "Win32_Foundation",
+    "Win32_System",
+    "Wdk_Foundation",
+    "Win32_System_Threading",
+    "Wdk_System",
+    "Wdk_System_SystemInformation",
+    "Win32_System_WindowsProgramming",
+    "Win32_Storage_FileSystem",
+    "Win32_System_ProcessStatus",
+    "Win32_Security",
+]
